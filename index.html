@@ -25,6 +25,7 @@
 	<script src="js/jquery.easing.compatibility.js"></script>
 
 
+
 </head>
 
 <body>
@@ -137,54 +138,11 @@
 
 
 			<!-- Zad 1 -->
-			<script>
-				const nazwiska =["Ronaldo","Messi","Yamal","Marciniak"];
-				alert(nazwiska[2]);
-				nazwiska[nazwiska.length-1]="Szczesny";
-				alert(nazwiska[nazwiska.length-1]);
-				nazwiska[4]='Lukaku';
-				nazwiska[nazwiska.length]='Buffon';
-				nazwiska.push('Pele','Pepe','Krychowiak','Glik')
-				nazwiska.unshift('Maradona','Ramos')
-				//Wyswietlenie wszystkich : alert(nazwiska);
-			</script>
+
 			<!-- Zad 2 -->
-			<script>
-				const marka=["Zander","Konger","Daiwa","Jackson"];
-				document.write('<p>Pierwszy element to <strong>');
-				document.write(marka[0] + '</strong></p>');
 
-				document.write('<p>Ostatni element to <strong>');
-				document.write(marka[marka.length-1] + '</strong></p>');
-
-				marka.unshift('Mistrall');
-				document.write('<p>Pierwszy element to <strong>');
-				document.write(marka[0] + '</strong></p>');
-
-			</script>
 			<!-- Zad 3 -->
-			<script>
-				const totalElements = document.querySelectorAll("*").length;
-				const counts = {
-					paragrafy: document.querySelectorAll("p").length,
-					nagłówki: document.querySelectorAll("h1, h2, h3, h4, h5, h6").length,
-					divy: document.querySelectorAll("div").length,
-					spany: document.querySelectorAll("span").length,
-					linki: document.querySelectorAll("a").length,
-					listy: document.querySelectorAll("ul, ol").length,
-					elementyListy: document.querySelectorAll("li").length,
-					obrazy: document.querySelectorAll("img").length,
-					formularze: document.querySelectorAll("form").length
-				};
 
-				document.write("<h2>Podsumowanie:</h2>");
-				document.write("Łączna ilość elementów na stronie: " + totalElements + "<br>");
-				Object.keys(counts).forEach(type => {
-					document.write("Ilość " + type + ": " + counts[type] + "<br>");
-				});
-
-
-			</script>
 			<!-- Zad 4 -->
 			<script>
 				// Zmiana danych w sekcji main-page
@@ -194,119 +152,57 @@
 				document.querySelector('#main-page .row:nth-of-type(4) .col-md-4').innerHTML = "20450@student.ans-elblag.pl";  // Zmiana emaila
 				document.querySelector('#main-page .row:nth-of-type(5) .col-md-4').innerHTML = "20450";   // Zmiana nr indeksu
 
-				const newParagraph1 = document.createElement('p');
-				const newParagraph2 = document.createElement('p');
-
-				// Wstawienie elementów z tablic do nowych akapitów
-				newParagraph1.innerHTML = "Element z tablicy nazwiska: " + nazwiska[0];
-				newParagraph2.innerHTML = "Element z tablicy marka: " + marka[1];
-
-				// Dodanie nowych akapitów do sekcji main-page
-				document.querySelector('#main-page .container').appendChild(newParagraph1);
-				document.querySelector('#main-page .container').appendChild(newParagraph2);
-
-				let i = 0;
-				while (i < Math.floor(nazwiska.length / 2)) {
-					document.write("<p>Element " + i + " z tablicy nazwiska: " + nazwiska[i] + "</p>");
-					i++;
-				}
-
-				for (let i = 0; i < Math.floor(marka.length / 2); i++) {
-					document.write("<p>Element " + i + " z tablicy marka: " + marka[i] + "</p>");
-				}
-
-				function showData() {
-					const nazwisko = document.querySelector('#main-page .row:nth-of-type(1) .col-md-4').innerHTML;
-					const imie = document.querySelector('#main-page .row:nth-of-type(2) .col-md-4').innerHTML;
-					const grupa = document.querySelector('#main-page .row:nth-of-type(3) .col-md-4').innerHTML;
-					const email = document.querySelector('#main-page .row:nth-of-type(4) .col-md-4').innerHTML;
-					const indeks = document.querySelector('#main-page .row:nth-of-type(5) .col-md-4').innerHTML;
-
-					alert("Dane: \nNazwisko: " + nazwisko + "\nImię: " + imie + "\nGrupa: " + grupa + "\nEmail: " + email + "\nNr indeksu: " + indeks);
-				}
 			</script>
-			<button onclick="showData()" class="btn btn-primary">Pokaż dane</button>
+			<h2 id="question"></h2>
+			<input type="number" id="answer" placeholder="Twoja odpowiedź">
+			<button onclick="nextQuestion()" class="przycisk">Następne pytanie</button>
+			<p id="score"></p>
+			<script>
+				let score = 0;
+				let q = 0;
+
+				const questions = [
+					['Ile jest planet w układzie słonecznym?', 8],
+					['Ile bitów ma jeden bajt?', 8],
+					['Ile to 2+2*2?', 6],
+					['Ile to 2*2+2?', 8]
+				];
+
+				function displayQuestion() {
+					if (q < questions.length) {
+						document.getElementById('question').innerText = questions[q][0];
+					} else {
+						document.getElementById('question').innerText = "Quiz zakończony!";
+						document.getElementById('score').innerText = 'Liczba punktów: ' + score + ' z ' + questions.length + '.';
+						document.getElementById('answer').style.display = 'none';
+						document.querySelector('.przycisk').style.display = 'none';
+					}
+				}
+
+				function nextQuestion() {
+					const answer = parseInt(document.getElementById('answer').value);
+					if (q < questions.length) {
+						if (answer === questions[q][1]) {
+							score++;
+						}
+						q++;
+						document.getElementById('answer').value = '';
+						displayQuestion();
+						document.getElementById('score').innerText = 'Liczba punktów: ' + score;
+					}
+				}
+				displayQuestion();
+			</script>
+
+
 
 		</div>
 	</div>
 </section>
 
 
-<section id="projekt2">
-	<div class="container">
-		<div class="jumbotron">
-			<h1>Projekt 2</h1>
 
-			<p>Miejsce na projekt laboratoryjny</p>
-			<!-- Zad 5 -->
-			<h1>Quiz</h1>
-			<div id="quiz-container"></div>
-			<button id="next-btn" class="btn btn-primary" style="display:none;">Dalej</button>
-			<div id="result" style="display:none;"></div>
-		</div>
-	</div>
-</section>
-
-<!-- Bootstrap core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-
-<script>
-	// Pytania quizu
-	var questions = [
-		['Ile to 2*2', 4],
-		['Ile to 2+2*2', 6],
-		['Ile to 32*32*0', 0]
-	];
-
-	let currentQuestionIndex = 0;
-	let score = 0;
-
-	function loadQuestion() {
-		const quizContainer = document.getElementById('quiz-container');
-		quizContainer.innerHTML = ''; // Wyczyść poprzednią zawartość
-
-		if (currentQuestionIndex < questions.length) {
-			const question = questions[currentQuestionIndex];
-			quizContainer.innerHTML = `<p>${question[0]}</p>
-            <input type="number" id="answer" placeholder="Podaj odpowiedź">
-            <button id="submit-btn" class="btn btn-success">Sprawdź</button>`;
-		} else {
-			showResult();
-		}
-
-		document.getElementById('next-btn').style.display = 'none';
-	}
-
-	// Funkcja do sprawdzania odpowiedzi
-	document.addEventListener('click', function (event) {
-		if (event.target && event.target.id === 'submit-btn') {
-			const answer = parseInt(document.getElementById('answer').value);
-			const question = questions[currentQuestionIndex];
-
-			if (answer === question[1]) {
-				alert('Prawidłowa odpowiedź!');
-				score++;
-			} else {
-				alert('Błąd. Prawidłowa odpowiedź to ' + question[1]);
-			}
-
-			currentQuestionIndex++;
-			document.getElementById('next-btn').style.display = 'block';
-		}
-	});
-
-	// Funkcja do wyświetlania wyniku
-	document.getElementById('next-btn').addEventListener('click', function () {
-		loadQuestion();
-	});
-
-	// Załaduj pierwsze pytanie
-	loadQuestion();
-
-</script>
-		</div>
-	</div>
-</section>
+S
 
 <footer>
 	<div class="container" style="margin-top: 5%">
@@ -409,7 +305,7 @@
 							<br>
 							<div class="row">
 								<div class="col-md-2" align="right">
-									<label for="information">Informacje</label>
+
 								</div>
 								<div class="col-md-4">
 										<textarea name="Informacje" cols="30" rows="7" id="Info"
