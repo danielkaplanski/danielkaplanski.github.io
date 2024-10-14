@@ -1,0 +1,15 @@
+{
+  "name": "lab3node",
+  "version": "1.0.0",
+  "description": "Daniel Kapłański nr indeksu: 20450 mail: 20450@student.ans-elblag.pl",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "danielkaplanski",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.1.7",
+    "pretty-ms": "^9.1.0"
+  }
+}
