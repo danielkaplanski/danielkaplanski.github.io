@@ -1,24 +1,37 @@
 const http = require('http');
-const path = require("path");
-const util = require("util");
-const v8 = require("v8");
+const fs = require('fs');
 
-const hostname = '127.0.0.1';
-const port = 8888;
+http.createServer(function(req, res) {
+    if (req.url === '/') {
+        fs.readFile('./titles.json', function(err, data) {
+            if (err) {
+                console.error('Błąd odczytu pliku titles.json:', err);
+                res.end('Error reading titles.json');
+                return; 
+            }
 
-const server = http.createServer((request, response) => {
-    response.statusCode = 200;
-    response.setHeader('Content-Type', 'text/plain');
-    response.end('Hello, from node.js server!\n');
-});
+            console.log('Odczytane dane JSON:', data.toString()); 
+            let titles;
+            try {
+                titles = JSON.parse(data.toString());
+            } catch (parseError) {
+                console.error('Błąd podczas parsowania JSON:', parseError);
+                res.end('Error parsing titles.json');
+                return; 
+            }
 
-server.listen(port, hostname, async () => {
-    const { default: prettyMilliseconds } = await import('pretty-ms');
+            fs.readFile('./template.html', function(err, data) {
+                if (err) {
+                    console.error('Błąd odczytu pliku template.html:', err);
+                    res.end('Error reading template.html');
+                    return; 
+                }
 
-    util.log(v8.getHeapStatistics());
-    console.log(path.basename(__filename));
-    util.log(path.join(__dirname, 'uploads', 'images'));
-    console.log(`Server running at http://${hostname}:${port}/`);
-    console.log(prettyMilliseconds(45300440004));
-    console.log("Użyłem modułu 'pretty-ms', który służy do formatowania czasu, zamienia milisekundy na czytelny czas")
-});
+                const tmpl = data.toString();
+                const html = tmpl.replace('%', titles.join('</li><li>'));
+                res.writeHead(200, { 'Content-Type': 'text/html' });
+                res.end(html);
+            });
+        });
+    }
+}).listen(8000, "127.0.0.1");
