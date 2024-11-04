@@ -14,3 +14,22 @@
     padding: 15px;
     width: auto;
 }
+.pq {
+    font-size: 16px;
+    color: #790000;
+    line-height: 1.5;
+    margin: 15px 0;
+}
+
+.pullquote {
+    float: right;
+    clear: right;
+    width: 220px;
+    padding: 15px;
+    font-size: 22px;
+    background-color: rgba(255, 220, 230, 0.7);
+    border-radius: 12px;
+    margin: 0px 0 10px 5px;
+    font-style: italic;
+    border-left: 4px solid #ff69b4; /* różowa linia po lewej */
+}

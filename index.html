@@ -138,12 +138,28 @@
 
 
 			<!-- Zad 1 -->
+			<script>
+				$(document).ready(function() {
+				$('span.pq').each(function() {
+				const quote=$(this).clone();
+				quote.removeClass('pq');
+				quote.addClass('pullquote');
+				$(this).before(quote);
+				}); // koniec funkcji each
+				}); //koniec funkcji ready
+				
+			</script>
+			<p class="pq">Zdrowy jak ryba</p>
+			<p>Wybierać się jak sójka za morze</p>
+			<p class="pq">Jedna jaskółka wiosny nie czyni</p>
+			<p>Kupić kota w worku</p>
 
-			<!-- Zad 2 -->
+			<span class="pq">Lepszy wróbel w garści niż gołąb na dachu</span>
+			<span>Darowanemu koniowi się w zęby nie zagląda</span>
+			<span class="pq">Gdy kota nie ma, myszy harcują</span>
+			<span>Na bezrybiu i rak ryba</span>
+			
 
-			<!-- Zad 3 -->
-
-			<!-- Zad 4 -->
 			<script>
 				// Zmiana danych w sekcji main-page
 				document.querySelector('#main-page .row:nth-of-type(1) .col-md-4').innerHTML = "Kapłański";   // Zmiana nazwiska
@@ -199,11 +215,423 @@
 		</div>
 	</div>
 </section>
+<section id="projekt3">
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Projekt 3</h1>
+			<!-- Zad 2 -->
+			<script>
+				document.addEventListener("dblclick", function() {
+					alert("Dwukrotnie kliknięto na stronie!");
+				});
+				
+			</script>
+			<script>
+				$(document).ready(function() {
+					$('a').hover(function() {
+						const message = "<p>Wskazałeś odnośnik myszą!</p>";
+						$('.main').append(message);
+					}, function() {
+						$('.main p').last().remove(); // Usuwamy ostatni akapit po opuszczeniu odnośnika
+					});
+				});
+			</script>
+			<style>
+				.main {
+					margin-top: 20px;
+				}
+			</style>
+			<div class="main">
+			<a href="#">Strona 1 </a>
+			<a href="#">Strona 2 </a>
+			<a href="#">Strona 3</a>
+			<a href="#">Strona 4 </a>
+		</div>
+		</div>
+	</div>
+</section>
+<section id="projekt4">
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Projekt 4</h1>
+			<script>
+				$(document).ready(function() {
+					// Zmiana tekstu przycisku po kliknięciu
+					$('#mainButton').click(function() {
+						$(this).val("zostałem kliknięty!");
+					});
+		
+					// Definicja funkcji dla zmiany stylów
+					function changeStyle(buttonNumber) {
+						let $element = $('h1'); // Możesz zmienić na inny tag
+						let message = "";
+						
+						switch (buttonNumber) {
+							case 1:
+								$element.css({'color': 'red'});
+								message = "Przycisk NR.1 zmienił kolor na czerwony.";
+								break;
+							case 2:
+								$element.css({'font-size': '30px'});
+								message = "Przycisk NR.2 zmienił wielkość czcionki na 30px.";
+								break;
+							case 3:
+								$element.css({'font-weight': 'bold'});
+								message = "Przycisk NR.3 ustawił czcionkę na pogrubioną.";
+								break;
+							case 4:
+								$element.css({'font-style': 'italic'});
+								message = "Przycisk NR.4 ustawił czcionkę na kursywę.";
+								break;
+							case 5:
+								$element.css({'text-decoration': 'underline'});
+								message = "Przycisk NR.5 podkreślił tekst.";
+								break;
+							case 6:
+								$element.css({'background-color': '#f0f0f0'});
+								message = "Przycisk NR.6 zmienił tło na jasnoszare.";
+								break;
+							case 7:
+								$element.css({'border': '2px solid blue'});
+								message = "Przycisk NR.7 dodał niebieską ramkę.";
+								break;
+							case 8:
+								$element.css({'padding': '20px'});
+								message = "Przycisk NR.8 dodał padding.";
+								break;
+							case 9:
+								$element.css({'margin': '20px'});
+								message = "Przycisk NR.9 dodał margines.";
+								break;
+							case 10:
+								$element.css({'opacity': '0.5'});
+								message = "Przycisk NR.10 ustawił przezroczystość.";
+								break;
+						}
+						
+						$('.main2').append(`<p>${message}</p>`);
+						$(`#button${buttonNumber}`).val(`NR.${buttonNumber} kliknięty`);
+					}
+		
+					// Przypisanie akcji do przycisków
+					for (let i = 1; i <= 10; i++) {
+						$(`#button${i}`).click(function() {
+							changeStyle(i);
+						});
+					}
+				});
+			</script>
+				<style>
+					.main2 {
+						margin-top: 20px;
+					}
+					h1 {
+						transition: all 0.3s; /* Płynna zmiana stylów */
+					}
+				</style>
+				<form>
+					<input type="button" id="mainButton" value="kliknij mnie" />
+				</form>
+				<div>
+					<h2>Przyciski zmieniające style:</h2>
+					<input type="button" id="button1" value="Przycisk 1" />
+					<input type="button" id="button2" value="Przycisk 2" />
+					<input type="button" id="button3" value="Przycisk 3" />
+					<input type="button" id="button4" value="Przycisk 4" />
+					<input type="button" id="button5" value="Przycisk 5" />
+					<input type="button" id="button6" value="Przycisk 6" />
+					<input type="button" id="button7" value="Przycisk 7" />
+					<input type="button" id="button8" value="Przycisk 8" />
+					<input type="button" id="button9" value="Przycisk 9" />
+					<input type="button" id="button10" value="Przycisk 10" />
+				</div>
+				<div class="main2"></div>
+		</div>
+	</div>
+</section>
+<section id="projekt5">
+	<div class="container">
+		<div class="jumbotron">
+			<style>
+				
+				#Projekt5 {
+					max-width: 800px;
+					margin: 0 auto;
+					padding: 20px;
+					background-color: #ffffff;
+					border-radius: 8px;
+					box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+				}
+				table {
+					width: 100%;
+					border-collapse: collapse;
+					margin-top: 20px;
+				}
+				th, td {
+					padding: 12px;
+					text-align: left;
+					border-bottom: 1px solid #ddd;
+				}
+				th {
+					background-color: #4CAF50;
+					color: white;
+				}
+				tr:hover {
+					background-color: #f1f1f1;
+				}
+				.quote {
+					font-style: italic;
+					color: #555;
+					margin: 0;
+				}
 
-
-
-S
-
+			</style>
+			<h1>Przysłowia</h1>
+			<table>
+				<thead>
+					<tr>
+						<th>Przysłowie</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="quote">„Zdrowy jak ryba”</td>
+					</tr>
+					<tr>
+						<td class="quote">„Wybierać się jak sójka za morze”</td>
+					</tr>
+					<tr>
+						<td class="quote">„Jedna jaskółka wiosny nie czyni”</td>
+					</tr>
+					<tr>
+						<td class="quote">„Kupić kota w worku”</td>
+					</tr>
+					<tr>
+						<td class="quote">„Lepszy wróbel w garści niż gołąb na dachu”</td>
+					</tr>
+					<tr>
+						<td class="quote">„Darowanemu koniowi się w zęby nie zagląda”</td>
+					</tr>
+					<tr>
+						<td class="quote">„Gdy kota nie ma, myszy harcują”</td>
+					</tr>
+					<tr>
+						<td class="quote">„Gdyby kózka nie skakała, to by nóżki nie złamała”</td>
+					</tr>
+					<tr>
+						<td class="quote">„Wysoki jak brzoza, a głupi jak koza”</td>
+					</tr>
+					<tr>
+						<td class="quote">„Dobra krowa chłopu dzieci chowa”</td>
+					</tr>
+					<tr>
+						<td class="quote">„Krowa, która dużo ryczy, mało mleka daje”</td>
+					</tr>
+					<tr>
+						<td class="quote">„Pies ogrodnika – sam nie zje i drugiemu nie da”</td>
+					</tr>
+					<tr>
+						<td class="quote">„Na bezrybiu i rak ryba”</td>
+					</tr>
+					<tr>
+						<td class="quote">„Nosił wilk razy kilka, ponieśli i wilka”</td>
+					</tr>
+					<tr>
+						<td class="quote">„Patrzeć jak wół na malowane wrota”</td>
+					</tr>
+					
+				</tbody>
+			</table>
+		
+		</div>
+	</div>
+</section>
+<section id="projekt6">
+	<div class="container">
+		<div class="jumbotron">
+			<button id="btn1">Zmień kolor przysłowia 1</button>
+            <button id="btn2">Zmień kolor przysłowia 2</button>
+            <button id="btn3">Zmień kolor przysłowia 3</button>
+            <button id="btn4">Zmień kolor przysłowia 4</button>
+            <button id="btn5">Zmień kolor przysłowia 5</button>
+            <button id="btn6">Zmień kolor przysłowia 6</button>
+            <button id="btn7">Zmień kolor przysłowia 7</button>
+            <button id="btn8">Zmień kolor przysłowia 8</button>
+            <button id="btn9">Zmień kolor przysłowia 9</button>
+            <button id="btn10">Zmień kolor przysłowia 10</button>
+            <button id="btn11">Zmień kolor przysłowia 11</button>
+            <button id="btn12">Zmień kolor przysłowia 12</button>
+            <button id="btn13">Zmień kolor przysłowia 13</button>
+            <button id="btn14">Zmień kolor przysłowia 14</button>
+            <button id="btn15">Zmień kolor przysłowia 15</button>
+			<script>
+				
+				function toggleColor(element, defaultColor, newColor) {
+					if (element.style.color === newColor) {
+						element.style.color = defaultColor;
+					} else {
+						element.style.color = newColor;
+					}
+				}
+			
+				document.getElementById('btn1').onclick = function() {
+					const proverb = document.querySelector('#projekt5 tbody tr:first-child .quote');
+					toggleColor(proverb, '', 'red');
+				};
+			
+				document.getElementById('btn2').onclick = function() {
+					const proverb = document.querySelector('#projekt5 tbody tr:nth-child(2) .quote');
+					toggleColor(proverb, '', 'blue');
+				};
+			
+				document.getElementById('btn3').onclick = function() {
+					const proverb = document.querySelector('#projekt5 tbody tr:nth-child(3) .quote');
+					toggleColor(proverb, '', 'green');
+				};
+			
+				document.getElementById('btn4').onclick = function() {
+					const proverb = document.querySelector('#projekt5 tbody tr:nth-child(4) .quote');
+					toggleColor(proverb, '', 'orange');
+				};
+			
+				document.getElementById('btn5').onclick = function() {
+					const proverb = document.querySelector('#projekt5 tbody tr:nth-child(5) .quote');
+					toggleColor(proverb, '', 'purple');
+				};
+			
+				document.getElementById('btn6').onclick = function() {
+					const proverb = document.querySelector('#projekt5 tbody tr:nth-child(6) .quote');
+					toggleColor(proverb, '', 'pink');
+				};
+			
+				document.getElementById('btn7').onclick = function() {
+					const proverb = document.querySelector('#projekt5 tbody tr:nth-child(7) .quote');
+					toggleColor(proverb, '', 'cyan');
+				};
+			
+				document.getElementById('btn8').onclick = function() {
+					const proverb = document.querySelector('#projekt5 tbody tr:nth-child(8) .quote');
+					toggleColor(proverb, '', 'teal');
+				};
+			
+				document.getElementById('btn9').onclick = function() {
+					const proverb = document.querySelector('#projekt5 tbody tr:nth-child(9) .quote');
+					toggleColor(proverb, '', 'brown');
+				};
+			
+				document.getElementById('btn10').onclick = function() {
+					const proverb = document.querySelector('#projekt5 tbody tr:nth-child(10) .quote');
+					toggleColor(proverb, '', 'lime');
+				};
+			
+				document.getElementById('btn11').onclick = function() {
+					const proverb = document.querySelector('#projekt5 tbody tr:nth-child(11) .quote');
+					toggleColor(proverb, '', 'magenta');
+				};
+			
+				document.getElementById('btn12').onclick = function() {
+					const proverb = document.querySelector('#projekt5 tbody tr:nth-child(12) .quote');
+					toggleColor(proverb, '', 'navy');
+				};
+			
+				document.getElementById('btn13').onclick = function() {
+					const proverb = document.querySelector('#projekt5 tbody tr:nth-child(13) .quote');
+					toggleColor(proverb, '', 'olive');
+				};
+			
+				document.getElementById('btn14').onclick = function() {
+					const proverb = document.querySelector('#projekt5 tbody tr:nth-child(14) .quote');
+					toggleColor(proverb, '', 'coral');
+				};
+			
+				document.getElementById('btn15').onclick = function() {
+					const proverb = document.querySelector('#projekt5 tbody tr:nth-child(15) .quote');
+					toggleColor(proverb, '', 'grey');
+				};
+			</script>
+		</div>
+	</div>
+</section>
+<section id="projekt7">
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Edytor Przysłów - Projekt 7</h1>
+            <button id="changeEvenRowsColor">Zmień kolor parzystych wierszy</button>
+            <button id="changeOddRowsColor">Zmień kolor nieparzystych wierszy</button>
+            <button id="changeEvenQuoteColor">Zmień kolor parzystych wierszy z klasą 'quote'</button>
+            <button id="changeFirstLastColor">Zmień kolor pierwszego i ostatniego przysłowia</button>
+            <button id="changeNotEvenRowsColor">Zmień kolor wierszy, które nie są parzyste</button>
+            <button id="changeQuoteClassColor">Zmień kolor wierszy zawierających klasę 'quote'</button>
+            <button id="changeTextContainsKotColor">Zmień kolor przysłów zawierających tekst 'kot'</button>
+            <button id="showHiddenProverbs">Pokaż ukryte przysłowia</button>
+			<script>
+				// Funkcja do zmiany koloru dla wybranych elementów
+				function toggleColor1(elements, defaultColor, newColor) {
+					elements.forEach(element => {
+						if (element.style.color === newColor) {
+							element.style.color = defaultColor;
+						} else {
+							element.style.color = newColor;
+						}
+					});
+				}
+			
+				// Button 1 - Zmiana koloru parzystych wierszy
+				document.getElementById('changeEvenRowsColor').onclick = function() {
+					const evenRows = document.querySelectorAll('#projekt5 tbody tr:nth-child(even) .quote');
+					toggleColor1(evenRows, '', 'lightblue');
+				};
+			
+				// Button 2 - Zmiana koloru nieparzystych wierszy
+				document.getElementById('changeOddRowsColor').onclick = function() {
+					const oddRows = document.querySelectorAll('#projekt5 tbody tr:nth-child(odd) .quote');
+					toggleColor1(oddRows, '', 'lightgreen');
+				};
+			
+				// Button 3 - Zmiana koloru parzystych wierszy z klasą 'quote'
+				document.getElementById('changeEvenQuoteColor').onclick = function() {
+					const evenRowsWithClass = document.querySelectorAll('#projekt5 tbody tr:nth-child(even) .quote');
+					toggleColor1(evenRowsWithClass, '', 'yellow');
+				};
+			
+				// Button 4 - Zmiana koloru pierwszego i ostatniego przysłowia
+				document.getElementById('changeFirstLastColor').onclick = function() {
+					const firstProverb = document.querySelector('#projekt5 tbody tr:first-child .quote');
+					const lastProverb = document.querySelector('#projekt5 tbody tr:last-child .quote');
+					toggleColor1([firstProverb, lastProverb], '', 'orange');
+				};
+			
+				// Button 5 - Zmiana koloru wierszy, które nie są parzyste
+				document.getElementById('changeNotEvenRowsColor').onclick = function() {
+					const notEvenRows = document.querySelectorAll('#projekt5 tbody tr:not(:nth-child(even)) .quote');
+					toggleColor1(notEvenRows, '', 'pink');
+				};
+			
+				// Button 6 - Zmiana koloru wierszy zawierających klasę 'quote'
+				document.getElementById('changeQuoteClassColor').onclick = function() {
+					const quoteRows = document.querySelectorAll('td.quote');
+					toggleColor1(quoteRows, '', 'purple');
+				};
+			
+				// Button 7 - Zmiana koloru przysłów zawierających tekst 'kot'
+				document.getElementById('changeTextContainsKotColor').onclick = function() {
+					const proverbsWithText = Array.from(document.querySelectorAll('#projekt5 tbody .quote'))
+						.filter(el => el.innerText.includes('kot'));
+					toggleColor1(proverbsWithText, '', 'red');
+				};
+			
+				// Button 8 - Pokaż ukryte przysłowia
+				document.getElementById('showHiddenProverbs').onclick = function() {
+					const hiddenProverbs = document.querySelectorAll('#projekt5 tbody tr[style*="display: none"]');
+					hiddenProverbs.forEach(proverb => {
+						proverb.style.display = 'table-row'; // Pokaż przysłowie
+						toggleColor1([proverb.querySelector('.quote')], '', 'blue'); // Zmień kolor
+					});
+				};
+			</script>
+        </div>
+    </div>
+</section>
 <footer>
 	<div class="container" style="margin-top: 5%">
 		<button type="button" class="btn btn-link" data-toggle="modal"
