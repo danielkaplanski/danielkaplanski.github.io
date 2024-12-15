@@ -16,6 +16,6 @@ repo 9 - https://github.com/danielkaplanski/lab9
 lab 9 - https://danielkaplanski.github.io/lab9/
 
 repo 10 - https://github.com/danielkaplanski/lab10.git
-lab 10 - https://danielkaplanski.github.io/lab10/
+lab 10 - https://lab10-jet.vercel.app/
 
 
