@@ -18,7 +18,7 @@ lab 9 - https://danielkaplanski.github.io/lab9/
 repo 10 - https://github.com/danielkaplanski/lab10.git
 lab 10 - https://lab10-jet.vercel.app/
 
-repo 11/12 - https://github.com/danielkaplanski/lab-11-12-13.git
-lab11/12 LINK = "https://lab-11-12-13-gc6tfeksh-danielkaplanskis-projects.vercel.app/"
+repo 11/12/13 - https://github.com/danielkaplanski/lab-11-12-13.git
+lab11/12/13 LINK = "https://lab-11-12-13-gc6tfeksh-danielkaplanskis-projects.vercel.app/"
 
 
