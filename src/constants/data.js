@@ -63,18 +63,18 @@ export const projects = [
     description: 'A comprehensive food diary and recipe management app that helps users track meals, monitor nutrition, and discover healthy recipes.',
     technologies: ['React Native', 'Node.js', 'SQL', 'JavaScript', 'Group Project'],
     image: '/images/projects/helcro.png',
-    demoUrl: 'https://example-ecommerce.com',
-    codeUrl: 'https://github.com/username/ecommerce-platform',
+    demoUrl: '',
+    codeUrl: 'https://github.com/danielkaplanski/Helcro',
     category: 'Full Stack'
   },
   {
     id: 2,
     title: 'Car Salon ',
     description: 'Car Salon is a full-featured car rental platform that allows customers to book vehicles online with an intuitive interface.',
-    technologies: ['Next.js', 'React', 'Vercel','Neon DB'],
+    technologies: ['Next.js', 'React', 'Vercel','Neon DB', 'Group Project'],
     image: '/images/projects/carsalonblack.png',
     demoUrl: 'https://car-salon-iota.vercel.app/',
-    codeUrl: 'https://github.com/username/task-management-app',
+    codeUrl: 'https://github.com/danielkaplanski/car-salon',
     category: 'Full Stack'
   },
   {
@@ -83,8 +83,8 @@ export const projects = [
     description: 'description',
     technologies: ['JavaScript', 'API', 'CSS', 'Chart.js'],
     image: '/images/projects/weather.jpg',
-    demoUrl: 'https://example-weather.com',
-    codeUrl: 'https://github.com/username/weather-dashboard',
+    demoUrl: '',
+    codeUrl: '',
     category: 'Frontend'
   },
   
