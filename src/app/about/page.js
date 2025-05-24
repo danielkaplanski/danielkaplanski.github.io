@@ -39,8 +39,8 @@ export default function AboutPage() {
                 </p><br/>
                 <p>
                     I enjoy building web and mobile applications that focus on performance and user experience. 
-                    Through various university and personal projects, I've gained experience working with modern 
-                    technologies like React, Node.js, and .NET.
+                    Through various university and personal projects, I've gained experience working with  
+                    technologies like React, Java, C#, React Native, Next.js, Node.js, and .NET.
                 </p><br/>
                 <p>
                     I'm a fast learner who thrives in problem-solving environments. When I encounter something I don’t yet know, 
