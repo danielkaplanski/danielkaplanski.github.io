@@ -24,10 +24,10 @@ export default function ContactForm() {
     setIsSubmitting(true);
 
     emailjs.sendForm(
-      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID, 
-      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, 
+      'service_9xthc1h', 
+      'template_km45nuf', 
       e.target,
-      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+      'eFtSQcKEp1HPjLjjf'
     )
     .then((result) => {
       console.log(result.text);
