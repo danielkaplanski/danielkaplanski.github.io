@@ -1,4 +1,5 @@
 "use client";
+import { FiDownload } from 'react-icons/fi';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FiGithub, FiExternalLink } from 'react-icons/fi';
@@ -35,6 +36,18 @@ export default function ProjectCard({ project }) {
             >
               <FiExternalLink size={20} />
             </Link>
+          )}
+          {project.downloadUrl && (
+            <a
+              href={project.downloadUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+              className="p-3 bg-white text-gray-900 rounded-full hover:bg-primary-100 transition-colors"
+              aria-label="Download APK"
+            >
+              <FiDownload size={20} />
+            </a>
           )}
         </div>
       </div>
@@ -78,6 +91,18 @@ export default function ProjectCard({ project }) {
               <FiGithub size={16} />
               View Code
             </Link>
+          )}
+          {project.downloadUrl && (
+            <a
+              href={project.downloadUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+              className="flex items-center gap-2 px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            >
+              <FiDownload size={16} />
+              Download APK
+            </a>
           )}
         </div>
       </div>

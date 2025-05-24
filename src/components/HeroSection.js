@@ -88,7 +88,7 @@ export default function HeroSection() {
           
           {/* Floating tech icons */}
           <div className="absolute -bottom-10 -right-10 w-24 h-24 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center shadow-lg">
-            <span className="text-3xl">⚛️</span>
+            <span className="text-3xl">👨‍💻</span>
           </div>
           <div className="absolute top-10 -left-10 w-20 h-20 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center shadow-lg">
             <span className="text-2xl">🚀</span>

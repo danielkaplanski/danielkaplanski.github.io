@@ -64,6 +64,7 @@ export const projects = [
     technologies: ['React Native', 'Node.js', 'SQL', 'JavaScript', 'Group Project'],
     image: '/images/projects/helcro.png',
     demoUrl: '',
+    downloadUrl: 'https://expo.dev/accounts/helcro/projects/Helcro/builds/9af921e1-540e-4259-94e8-6d27351db75f', 
     codeUrl: 'https://github.com/danielkaplanski/Helcro',
     category: 'Full Stack'
   },
@@ -79,13 +80,13 @@ export const projects = [
   },
   {
     id: 3,
-    title: 'title',
-    description: 'description',
-    technologies: ['JavaScript', 'API', 'CSS', 'Chart.js'],
-    image: '/images/projects/weather.jpg',
+    title: 'LicensePlateDetector',
+    description: 'LicensePlateDetector is a Python-based application that automatically detects vehicle license plates in images.',
+    technologies: ['Python', 'OpenCV', 'PyTorch'],
+    image: '/images/projects/licenseplatedetector.png',
     demoUrl: '',
-    codeUrl: '',
-    category: 'Frontend'
+    codeUrl: 'https://github.com/danielkaplanski/LicensePlateDetector',
+    category: 'Full Stack'
   },
   
 ];
