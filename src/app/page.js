@@ -1,4 +1,4 @@
-
+"use client"
 import HeroSection from '../components/HeroSection';
 import SkillsSection from '../components/SkillsSection';
 import ProjectsPreview from '../components/ProjectsPreview';
