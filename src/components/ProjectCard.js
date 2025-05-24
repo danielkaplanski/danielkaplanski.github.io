@@ -70,17 +70,7 @@ export default function ProjectCard({ project }) {
           ))}
         </div>
         <div className="flex gap-3">
-          {project.demoUrl && (
-            <Link
-              href={project.demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700 transition-colors"
-            >
-              <FiExternalLink size={16} />
-              Live Demo
-            </Link>
-          )}
+          
           {project.codeUrl && (
             <Link
               href={project.codeUrl}
@@ -90,6 +80,17 @@ export default function ProjectCard({ project }) {
             >
               <FiGithub size={16} />
               View Code
+            </Link>
+          )}
+          {project.demoUrl && (
+            <Link
+              href={project.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700 transition-colors"
+            >
+              <FiExternalLink size={16} />
+              Live Demo
             </Link>
           )}
           {project.downloadUrl && (
